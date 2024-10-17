@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+Testing the functionality of your authentication app involves several steps to ensure that all aspects of the authentication process work correctly. Below are methods for both manual testing and automated testing.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Manual Testing
+Setup
+Start your backend server (Flask app):
+bash
+Copy code
+python app.py
+Run your frontend application (React app):
+bash
+Copy code
+npm start
+Testing Sign Up Functionality
+Access the Sign Up Page: Open your browser and navigate to the authentication component (e.g., http://localhost:3000/auth).
 
-## Available Scripts
+Test Valid Input:
 
-In the project directory, you can run:
+Enter a valid username and password.
+Click on the "Sign Up" button.
+Check if you receive a success message (e.g., "User created successfully!").
+Test Duplicate User:
 
-### `npm start`
+Attempt to sign up again with the same username.
+Ensure you receive an error message (e.g., "User already exists").
+Test Missing Fields:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Leave the username or password field empty and click "Sign Up."
+Confirm you receive an appropriate error message (e.g., "Missing username or password").
+Testing Login Functionality
+Access the Login Page: Navigate to the login section of your authentication component.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Test Valid Credentials:
 
-### `npm test`
+Enter the username and password you used for signup.
+Click the "Log In" button.
+Confirm you receive a success message (e.g., "Logged in successfully!").
+Test Invalid Credentials:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Enter an invalid username or password.
+Ensure you receive an error message (e.g., "Invalid credentials").
+Test Missing Fields:
 
-### `npm run build`
+Leave either the username or password field empty and click "Log In."
+Confirm you see an appropriate error message.
+Testing Protected Routes
+Access a Protected Route:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After logging in successfully, try accessing a protected route (e.g., http://localhost:5000/dashboard).
+Test Access with Valid Token:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Check if you can access the dashboard after logging in.
+Test Access Without Token:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Log out or clear your token from localStorage.
+Attempt to access the protected route.
+Ensure you receive an "Unauthorized access" message.
+Testing Logout Functionality
+Log Out:
 
-### `npm run eject`
+Click the "Logout" button in your app.
+Confirm you receive a logout success message (e.g., "Logged out successfully!").
+Test Access After Logout:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Try accessing a protected route after logging out.
+Ensure you are redirected to the login page or see an unauthorized access message.
